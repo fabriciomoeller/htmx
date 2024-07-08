@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.0"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="font-sans antialiased m-0">
+  <div class="p-6  min-h-screen flex justify-center items-center">
+  <div class="w-full max-w-md">
+    <logo class="block mx-auto w-full max-w-xs fill-white" height="60" />
+    <form class="mt-8 bg-white rounded-lg shadow-xl overflow-hidden" @submit.prevent="submit">
+      <div class="px-10 py-12">
+        <h1 class="text-center font-bold text-3xl">Login</h1>
+        <div class="mx-auto mt-6 w-24 border-b-2" />
+        <div class="relative">
+          <label v-if="label" class="form-label" :for="4">Email</label>
+          <input 
+            class="form-input p-2 "
+            type="email" 
+            autofocus autocapitalize="off" 
+          />
+        </div>
+        <div class="mt-4"/>
+        <input 
+          v-model="form.password" 
+          class="mt-6" 
+          label="Senha" 
+          type="password" 
+        />
+        <label class="mt-6 select-none flex items-center" for="remember">
+          <input id="remember" v-model="form.remember" class="mr-1" type="checkbox">
+          <span class="text-sm">Lembrar senha</span>
+        </label>
+      </div>
+      <div class="px-10 py-4 bg-gray-100 border-t border-gray-200 flex justify-between items-center">
+        <a class="hover:underline" tabindex="-1" href="#reset-password">Esqueceu a senha?</a>
+        <button :loading="sending" class="btn-indigo" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+  </div>
+  </body>
+</html>
